@@ -32,8 +32,8 @@ const ContactForm = () => {
         setPhone(contact.phone || "");
         setAddress(contact.address || "");
       } catch (err) {
-        console.error("Error cargando contacto:", err);
-        alert("No se pudo cargar el contacto para editar.");
+        console.error("Error:", err);
+        alert("Hay un error para editar el contacto.");
       }
     };
 
@@ -44,7 +44,7 @@ const ContactForm = () => {
     e.preventDefault();
 
     if (!name || !email || !phone || !address) {
-      alert("Rellena todos los campos");
+      alert("Rellena correctamente");
       return;
     }
 
@@ -74,19 +74,19 @@ const ContactForm = () => {
 
       navigate("/");
     } catch (err) {
-      console.error("Error guardando contacto:", err);
-      alert("No se pudo guardar. Mira la consola para ver el error.");
+      console.error("Error:", err);
+      alert("Ha habido un error.");
     }
   };
 
   return (
     <div className="container mt-5">
       
-      <h1>{id ? "Edit contact" : "Add new contact"}</h1>
+      <h1>{id ? "Edit contact" : "Añadir Nuevo Contacto"}</h1>
 
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label className="form-label">Full Name</label>
+          <label className="form-label">Nombre</label>
           <input
             type="text"
             className="form-control"
@@ -106,7 +106,7 @@ const ContactForm = () => {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Phone</label>
+          <label className="form-label">Teléfono</label>
           <input
             type="text"
             className="form-control"
@@ -116,7 +116,7 @@ const ContactForm = () => {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Address</label>
+          <label className="form-label">Direccion</label>
           <input
             type="text"
             className="form-control"
@@ -126,11 +126,11 @@ const ContactForm = () => {
         </div>
 
         <button type="submit" className="btn btn-primary me-2">
-          {id ? "Update" : "Save"}
+          {id ? "Actualizar" : "Guardar"}
         </button>
 
         <Link to="/" className="btn btn-secondary">
-          Back home
+          Volver a Inicio
         </Link>
       </form>
     </div>
